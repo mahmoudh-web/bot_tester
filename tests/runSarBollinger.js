@@ -73,7 +73,7 @@ const runSarBollinger = async (symbol, interval, settings) => {
 	console.log(`Buys: ${buys}, Sells: ${sells}, Losing: ${losing}`)
 	const winRate = Number((((buys - losing) / buys) * 100).toFixed(2))
 	const loseRate = Number(((losing / buys) * 100).toFixed(2))
-	const profit = Number((((usdt - 100) / usdt) * 100).toFixed(2))
+	const profit = Number((usdt - 100).toFixed(2))
 	return { buys, sells, losing, usdt, token, winRate, loseRate, profit }
 }
 
