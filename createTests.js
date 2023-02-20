@@ -26,7 +26,7 @@ const createTests = () => {
 				for (let psar_max = 0.4; psar_max < 0.6; psar_max += 0.1) {
 					for (
 						let bollinger_period = 2;
-						bollinger_period < 50;
+						bollinger_period < 20;
 						bollinger_period += 2
 					) {
 						for (

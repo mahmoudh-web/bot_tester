@@ -153,7 +153,6 @@ const kline_3m = mongoose.model("kline_3m", kline_3mSchema)
 const kline_5m = mongoose.model("kline_5m", kline_5mSchema)
 const kline_15m = mongoose.model("kline_15m", kline_15mSchema)
 const kline_1h = mongoose.model("kline_1h", kline_1hSchema)
-const testQueue = mongoose.model("testQueue", testQueueSchema)
 
 export {
 	Instrument,
@@ -163,7 +162,6 @@ export {
 	kline_5m,
 	kline_15m,
 	kline_1h,
-	testQueue,
 	Tests,
 	Results,
 }
