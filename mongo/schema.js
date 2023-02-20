@@ -118,13 +118,6 @@ const queueSchema = new mongoose.Schema({
 	active: { type: Boolean, default: false },
 })
 
-const testQueueSchema = new mongoose.Schema({
-	symbol: { type: String, required: true },
-	timeframe: { type: String, required: true },
-	bot: { type: String, required: true },
-	settings: { type: mongoose.Schema.Types.Mixed, required: true },
-})
-
 const testsSchema = new mongoose.Schema({
 	testId: { type: String, required: true },
 	symbol: { type: String, required: true },

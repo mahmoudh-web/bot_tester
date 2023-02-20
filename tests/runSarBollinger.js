@@ -113,7 +113,7 @@ function buy(candle) {
 }
 
 function sell(candle) {
-	if (candle.open > candle.bollinger_lower && candle.psar > candle.low)
+	if (candle.open > candle.bollinger_upper && candle.psar > candle.low)
 		return true
 	return false
 }
