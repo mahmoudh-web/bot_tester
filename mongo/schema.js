@@ -137,6 +137,8 @@ const testsSchema = new mongoose.Schema({
 })
 
 const testResultsSchema = new mongoose.Schema({
+	symbol: { type: String, required: true },
+	interval: { type: Number, required: true },
 	testId: { type: String, required: true },
 	buys: { type: Number, required: true },
 	sells: { type: Number, required: true },

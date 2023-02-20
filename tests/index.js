@@ -28,6 +28,8 @@ const runTest = async () => {
 		})
 
 		const testData = {
+			symbol: job.symbol,
+			interval: job.interval,
 			testId: id,
 			buys: results.buys,
 			sells: results.sells,
