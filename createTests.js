@@ -19,20 +19,20 @@ const createTests = () => {
 	instruments.forEach(instrument => {
 		intervals.forEach(interval => {
 			for (
-				let psar_increment = 0.02;
+				let psar_increment = 0.1;
 				psar_increment < 0.31;
-				psar_increment += 0.02
+				psar_increment += 0.1
 			) {
 				for (let psar_max = 0.4; psar_max < 0.6; psar_max += 0.1) {
 					for (
 						let bollinger_period = 2;
 						bollinger_period < 50;
-						bollinger_period++
+						bollinger_period += 2
 					) {
 						for (
-							let bollinger_deviation = 0.25;
+							let bollinger_deviation = 0.5;
 							bollinger_deviation < 1.25;
-							bollinger_deviation += 0.25
+							bollinger_deviation += 0.5
 						) {
 							const testSettings = {
 								symbol: instrument.symbol,

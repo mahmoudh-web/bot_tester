@@ -3,13 +3,24 @@ import { getCandles } from "../lib/historical/getCandles.js"
 import { addIndicatorData } from "../lib/historical/addIndicatorData.js"
 import { DateTime } from "luxon"
 import { buyAmount, sellAmount } from "../lib/trade.js"
+import fs from "fs"
+import * as csv from "fast-csv"
+import { readCandles, writeCsv, writeCsvSync } from "./creatFiles.js"
+import { Results } from "../mongo/schema.js"
 
 // BUY: psar below low, open below bollinger channel
 // SELL: psar above high, open above bollinger channel
-const runSarBollinger = async (symbol, interval, settings) => {
+const runSarBollinger = async (symbol, interval, jobId, settings) => {
 	// get candles
-	const candlesAll = await getCandles(symbol, interval)
-	if (!candlesAll.length) return
+	const filename = `./tests/files/${symbol}_${interval}.csv`
+	if (!fs.existsSync(filename)) {
+		console.log("file does not exist")
+		const createFile = await writeCsvSync(symbol, interval)
+	} else {
+		console.log("file exists")
+	}
+
+	const candlesAll = await readCandles(filename)
 
 	// filter for 2022
 	const yearStart = DateTime.fromISO("2022-01-01T00:00:00.000").setZone("utc")
@@ -74,7 +85,25 @@ const runSarBollinger = async (symbol, interval, settings) => {
 	const winRate = Number((((buys - losing) / buys) * 100).toFixed(2))
 	const loseRate = Number(((losing / buys) * 100).toFixed(2))
 	const profit = Number((usdt - 100).toFixed(2))
-	return { buys, sells, losing, usdt, token, winRate, loseRate, profit }
+
+	return {
+		buys,
+		sells,
+		losing,
+		usdt,
+		token,
+		winRate,
+		loseRate,
+		profit,
+	}
+
+	// const candlesAll = await getCandles(symbol, interval)
+	// if (!candlesAll.length) return
+
+	/*
+
+
+	*/
 }
 
 function buy(candle) {

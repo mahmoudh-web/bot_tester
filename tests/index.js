@@ -19,7 +19,7 @@ const runTest = async () => {
 	if (job) {
 		const id = job.testId
 		await Tests.updateOne({ testId: id }, { completed: true })
-		const results = await runSarBollinger(job.symbol, job.interval, {
+		const results = await runSarBollinger(job.symbol, job.interval, id, {
 			psar: { increment: job.psar_increment, max: job.psar_max },
 			bollinger: {
 				period: job.bollinger_period,
