@@ -80,4 +80,5 @@ if (tests.length) {
 	})
 	await saveTest(tests)
 }
+
 mongoose.disconnect()

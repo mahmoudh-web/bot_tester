@@ -1,9 +1,12 @@
-import { buyAmount, sellAmount } from "./lib/trade.js"
+import { getCandles } from "./lib/historical/getCandles.js"
+import { kline_1m } from "./mongo/schema.js"
 
-const price = 0.0504
-const amount = 10
+import * as dotenv from "dotenv"
+import { connectDb } from "./mongo/connection.js"
+import mongoose from "mongoose"
+dotenv.config()
+await connectDb()
+const candles = await getCandles("BTCUSDT", 1)
+console.log(candles.length)
 
-const token = buyAmount(price, amount)
-const reverse = sellAmount(price, token)
-
-console.log(token, reverse)
+mongoose.disconnect()

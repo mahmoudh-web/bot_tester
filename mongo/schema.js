@@ -37,7 +37,7 @@ const kline_1mSchema = new mongoose.Schema({
 	takerBuyBaseAssetVolume: { type: Number, required: true },
 	takerBuyQuoteAssetVolume: { type: Number, required: true },
 	identifier: { type: String, required: true, unique: true },
-	symbol: { type: String, required: true },
+	symbol: { type: String, required: true, index: true },
 })
 
 const kline_3mSchema = new mongoose.Schema({
@@ -54,7 +54,7 @@ const kline_3mSchema = new mongoose.Schema({
 	takerBuyBaseAssetVolume: { type: Number, required: true },
 	takerBuyQuoteAssetVolume: { type: Number, required: true },
 	identifier: { type: String, required: true, unique: true },
-	symbol: { type: String, required: true },
+	symbol: { type: String, required: true, index: true },
 })
 
 const kline_5mSchema = new mongoose.Schema({
@@ -71,7 +71,7 @@ const kline_5mSchema = new mongoose.Schema({
 	takerBuyBaseAssetVolume: { type: Number, required: true },
 	takerBuyQuoteAssetVolume: { type: Number, required: true },
 	identifier: { type: String, required: true, unique: true },
-	symbol: { type: String, required: true },
+	symbol: { type: String, required: true, index: true },
 })
 
 const kline_15mSchema = new mongoose.Schema({
@@ -88,7 +88,7 @@ const kline_15mSchema = new mongoose.Schema({
 	takerBuyBaseAssetVolume: { type: Number, required: true },
 	takerBuyQuoteAssetVolume: { type: Number, required: true },
 	identifier: { type: String, required: true, unique: true },
-	symbol: { type: String, required: true },
+	symbol: { type: String, required: true, index: true },
 })
 
 const kline_1hSchema = new mongoose.Schema({
@@ -105,7 +105,7 @@ const kline_1hSchema = new mongoose.Schema({
 	takerBuyBaseAssetVolume: { type: Number, required: true },
 	takerBuyQuoteAssetVolume: { type: Number, required: true },
 	identifier: { type: String, required: true, unique: true },
-	symbol: { type: String, required: true },
+	symbol: { type: String, required: true, index: true },
 })
 
 const queueSchema = new mongoose.Schema({
